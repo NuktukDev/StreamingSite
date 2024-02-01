@@ -31,7 +31,7 @@ function TileCarousel({ tiles }: { tiles: TileInterface[] }) {
           onClick={(e) => {
             if (currentTile !== index) {
               e.preventDefault();
-              e.currentTarget.blur();
+              (e.target as HTMLElement).blur();
               setCurrentTile(index);
             }
           }}

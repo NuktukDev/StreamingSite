@@ -1,0 +1,79 @@
+.header {
+  margin: 3rem 0 0 0;
+}
+.header__currentTime {
+  color: #a8a8a8;
+}
+
+/* Navigation */
+.header__nav {
+  margin: 0rem auto 0 auto;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+}
+/* Side Menu */
+.header__nav__sideMenuContainer {
+  position: relative;
+  min-width: 5rem;
+}
+.header__nav__sideMenu {
+  position: fixed;
+  left: -200px;
+
+  width: 200px;
+  height: 500px;
+  background: skyblue;
+
+  transition: left 300ms;
+}
+.header__nav__sideMenu--active {
+  left: 0;
+}
+
+/* Horizontal Menu */
+.header__nav__list {
+  
+}
+@media screen and (max-width: 769px) {
+  .header__nav__list {
+    display: none;
+  }
+}
+.header__nav ul li {
+  display: inline;
+
+  text-transform: uppercase;
+}
+.header__nav ul li a {
+  padding: 1rem 2rem;
+
+  display: inline-block;
+}
+
+/* Profile Menu */
+.header__nav__profileMenuButton {
+  padding: 1rem;
+
+  border-radius: 50%;
+
+  /*position: fixed;
+  left: -100%;*/
+
+  transition: 0.5s;
+}
+.header__nav__profileMenuButton--active {
+  left: 0;
+}
+
+.header__nav__profileMenuButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.header__nav__profileImage {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 50%;
+}

@@ -34,14 +34,18 @@ function Tile({
 
   // default all the tiles to the right most with 200%
   let translateX = 200;
+  let ariaHidden = true;
   if (index === modulo(currentIndex - 3, count) || index === modulo(currentIndex - 2, count)) {
     translateX = -200; // the 2nd left most tile (3 tiles will always be on the left of the current tile)
   } else if (index === modulo(currentIndex - 1, count)) {
     translateX = -100; // the previous tile
+    ariaHidden = false;
   } else if (index === currentIndex) {
     translateX = 0; // the current tile
+    ariaHidden = false;
   } else if (index === modulo(currentIndex + 1, count)) {
     translateX = 100; // the next tile
+    ariaHidden = false;
   }
 
   return (
@@ -50,10 +54,11 @@ function Tile({
       role="button"
       aria-roledescription="read summary button"
       aria-label={`${title} summary`}
+      aria-hidden={ariaHidden}
       className="tile__link"
       style={{
         position: index === currentIndex ? 'relative' : 'absolute',
-        visibility: visibility,
+        display: visibility === 'visible' ? 'block' : 'none',
         transform: `translateX(${translateX}%)`,
       }}
       onClick={onClick}
@@ -77,6 +82,7 @@ function Tile({
           <button
             type="button"
             className="tile__link__summary__info__btn mt-2 btn--primary btn--rounded weight-600"
+            aria-hidden={ariaHidden}
           >
             Watch Now
           </button>

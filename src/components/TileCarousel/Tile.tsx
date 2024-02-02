@@ -1,12 +1,11 @@
-//import { useEffect, useState } from 'react';
-
 /* Styles */
 import './Tile.css';
 
 /* Types/Interfaces */
 import { TileInterface } from './TileInterface.ts';
 
-const modulo = (dividend: number, divisor: number) => ((dividend % divisor) + divisor) % divisor;
+/* Utility */
+import { modulo } from 'src/utility/modulo.js';
 
 function Tile({
   index,
@@ -22,6 +21,7 @@ function Tile({
   onClick: (e: React.MouseEvent) => void;
 }) {
   const { title, link, description, background } = data;
+  const trimmedTitle = title.replace(/ /g, '');
 
   const visibility =
     index === modulo(currentIndex - 2, count) ||
@@ -59,14 +59,14 @@ function Tile({
       onClick={onClick}
     >
       <div
-        aria-labelledby={`${title}-${index}`}
+        aria-labelledby={`${trimmedTitle}-${index}`}
         className={`tile__link__summary ${
           index === currentIndex ? 'tile__link__summary--active' : ''
         }`}
         style={{ backgroundImage: 'url(' + background + ')' }}
       >
         <div className="tile__link__summary__info">
-          <h3 id={`${title}-${index}`}>{title}</h3>
+          <h3 id={`${trimmedTitle}-${index}`}>{title}</h3>
           <p
             className="tile__link__summary__info__p color-mute overflow-hidden"
             style={{ height: '55%' }}

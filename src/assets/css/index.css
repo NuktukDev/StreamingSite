@@ -1,6 +1,8 @@
 :root {
   --primary: rgb(206, 26, 32);
   --accent: rgb(178,26,30);
+  --mute: rgb(189, 189, 189);
+  --muteDark: rgb(109, 109, 109);
 }
 body {
   background-color: #000;
@@ -120,7 +122,7 @@ button {
   color: #fff;
 }
 .color-mute {
-  color: #bdbdbd;
+  color: var(--mute);
 }
 
 /* Margins */

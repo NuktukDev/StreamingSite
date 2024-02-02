@@ -1,9 +1,69 @@
 .tileCarousel {
-  padding: 1rem 0 2rem 0;
+  text-align: center;
+}
+.tileCarousel__slides {
+  padding: 1rem 0 1rem 0;
 
   position: relative;
 
   overflow-x: hidden;
   display: flex;
   justify-content: center;
+
+  text-align: left;
+  
+}
+.tileCarousel__progress {
+  margin: 0 auto;
+
+  padding: 0 2rem;
+
+  height: 10px;
+  width: 40vw;
+  max-width: 800px;
+}
+@media screen and (max-width: 1216px) {
+  .tileCarousel__progress {
+    width: 45vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .tileCarousel__progress {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tileCarousel__progress {
+    padding: 0 0.5rem;
+    width: 90vw;
+  }
+}
+.tileCarousel__progress__inner {
+  --progressWidth: '50px';
+  --progressLeft: 0;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 8px;
+
+  background-color: transparent;
+}
+  
+.tileCarousel__progress__inner::before {
+  content: '';
+  position: absolute;
+  left: var(--progressLeft);
+  display: inline-block;
+
+  border-radius: 8px;
+
+  height: 10px;
+  width: var(--progressWidth);
+  min-width: 50px;
+
+  background-color: var(--mute);
+  transition: left 300ms ease-out;
 }
